@@ -34,8 +34,8 @@ namespace HelloWorld
         private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
         {
             ConfigurationOptions config = new ConfigurationOptions();
-            config.EndPoints.Add("pranavracachedemo1.redis.cache.windows.net");
-            config.Password = "QBLdCV+Ov0Q6Es/Te/45iTTH05UuHFjh+GhHFxxTaCQ=";
+            config.EndPoints.Add(ConfigurationManager.AppSettings["redisCacheName"]);
+            config.Password = ConfigurationManager.AppSettings["redisCachePassword"];
             config.Ssl = true;
             config.AbortOnConnectFail = false;
             config.ConnectRetry = 5;
